@@ -12,6 +12,6 @@ We can calculate this substance expenditure in 4 ways:
 4) We usea an AR(1) with a constant for our total exenditure.
 
 In terms of a practical estimation proceedure we will do the following:
- 1)Estimate substance expenditure using one of the 4 methods above
- 2)Center the data around such a process for an estimate of supernumary income
- 3)Run system of linear equations using SUR econometric method (get this from R package "systemfit")
+1)Estimate substance expenditure using one of the 4 methods above.
+2)Center the data around such a process for an estimate of supernumary income.
+3)Run system of linear equations using SUR econometric method (get this from R package "systemfit").
