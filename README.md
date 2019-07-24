@@ -16,3 +16,10 @@ In terms of a practical estimation proceedure we will do the following:
 1) Estimate substance expenditure using one of the 4 methods above.
 2) Center the data around such a process for an estimate of supernumary income.
 3) Run system of linear equations using SUR econometric method (get this from R package "systemfit").
+
+The system should be able to deal with the appropriate requirements such as those shown by GLS. This should not be an issue
+if we are able to use other packages as well.
+
+#Data
+A dataset has been pulled from statscanada data on quarterly consumer spending from 1999-2019 (approx 80 observations).
+
