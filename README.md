@@ -1,9 +1,9 @@
-<h1>Creating a Package to Run the LES<h1>
+Creating a Package to Run the LES
 
-<p>The linear expenditure system which was first developed by Richard Stone in 1954 is a demand system which distingishes between subsistance expenditure and supernumerary spending. The main idea is that there exists some base line level of demand necessary for consumer survival and afterward there is some extra income for much more leisurely spending on such commodities.</p>
+The linear expenditure system which was first developed by Richard Stone in 1954 is a demand system which distingishes between subsistance expenditure and supernumerary spending. The main idea is that there exists some base line level of demand necessary for consumer survival and afterward there is some extra income for much more leisurely spending on such commodities.
 
 <p>The LES is a simply from rearranging our marshallian demands for the stone-geary utility function. In general the LES is written as:
-  :<math>p_ix_i=p_i\gamma_i+\beta_i(m-\sum_jp_j\gamma_j),\space \space \space j\neq i</math>
+ $p_ix_i=p_i\gamma_i+\beta_i(m-\sum_jp_j\gamma_j),\space \space \space j\neq i$
 The key lies in terms of estimating what exactly our supernumerary spending on all other goods is.
 
 #Estimating substance expenditure
