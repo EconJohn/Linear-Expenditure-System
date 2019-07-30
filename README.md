@@ -47,7 +47,6 @@ First we load the data set
 df<-read.csv("C:\\Users\\jakea\\Desktop\\Consumer Data 1999to2019.csv")
 attach(df)
 ```
-Then we proceed to estimate our supernumary income using the porportional habit formation method
 ```{r}
 #Estimate Supernumary income Using porportional habit formation for a single equation in the LES
 subT<-coef(arima(I(Household.final.consumption.expenditure-Tobacco),order=c(1,0,0)))
