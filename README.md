@@ -47,12 +47,20 @@ Since we are estimating expenditure we do not need to worry about having specifi
 df<-read.csv("C:\\Users\\jakea\\Desktop\\Consumer Data 1999to2019.csv")
 attach(df)
 ```
+<br>
 
 ```{r}
+#Estimate Supernumary income Using porportional habit formation for a single equation in the LES
 subT<-coef(arima(I(Household.final.consumption.expenditure-Tobacco),order=c(1,0,0)))
-aothspendminustobacco<-I(subT[1]*(Household.final.consumption.expenditure-Tobacco))
-```
 
+aothspendminustobacco<-I(subT[1]*(Household.final.consumption.expenditure-Tobacco))
+
+supincomeTobacco<-I(Household.final.consumption.expenditure-aothspendminustobacco)
+
+#Estimating a single equation from the LES for tobacco expenditure
+#using OLS  (REMBER THE REAL WAY IS TO USE SUR)
+LESEQ1<-lm(Tobacco~supincomeTobacco+Year+ï..Quarter)
+summary(LESEQ1)
 
 #Data
 A dataset has been pulled from statscanada data on quarterly consumer spending from 1999-2019 (approx 80 observations).
