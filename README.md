@@ -1,4 +1,4 @@
-Creating a Package to Run the LES
+<h1>Creating a Package to Run the LES</h1>
 
 The linear expenditure system which was first developed by Richard Stone in 1954 is a demand system which distingishes between subsistance expenditure and supernumerary spending. The main idea is that there exists some base line level of demand necessary for consumer survival and afterward there is some extra income for much more leisurely spending on such commodities.
 
@@ -8,7 +8,7 @@ The linear expenditure system which was first developed by Richard Stone in 1954
 
 The key lies in terms of estimating what exactly our supernumerary spending on all other goods is.
 
-#Estimating substance expenditure
+<h1>Estimating substance expenditure</h1>
 
 In general we will find consumer data on spending that is of the time series nature. This will definately play a role in most of our estmation of our estimation procedures.
 
@@ -36,12 +36,12 @@ The estimation proceedures are the following:
 ![](http://latex.codecogs.com/gif.latex?%5Csum_%7Bj%7Dp_%7Bjt%7D%5Cgamma_%7Bjt%7D%3Da_i%5E*&plus;%5Calpha_i%28m_%7Bt-1%7D-p_%7Bit-1%7Dx_%7Bit-1%7D%29)
 <br>The reason why we are focused on this aspect first is because in order for us to run this system we require that we know what our substance expenditure is. *we estimate this first*
 
-#Estimating the LES
+<h1>Estimating the LES</h1>
 In terms of running the LES we are running a seemingly unrelated regressions system, where we estimate $n-1$ equations by this method and the last one by OLS.
 
 Since we are estimating expenditure we do not need to worry about having specific price and quantity data. Rather we can deal with aggregates.
 
-#Running the Code
+<h1>Running the Code</h1>
 ```{r}
 #Load Data
 df<-read.csv("C:\\Users\\jakea\\Desktop\\Consumer Data 1999to2019.csv")
