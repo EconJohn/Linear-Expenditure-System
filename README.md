@@ -40,7 +40,8 @@ The estimation proceedures are the following:
 In terms of running the LES we are running a seemingly unrelated regressions system, where we estimate $n-1$ equations by this method and the last one by OLS.
 
 Since we are estimating expenditure we do not need to worry about having specific price and quantity data. Rather we can deal with aggregates.
-
+<h1>Data</h1>
+<p>The data set is from statistics canada where we use quarterly consumer data from 1999-2019 </p
 <h1>Running the Code</h1>
 First we load the data set
 
@@ -62,6 +63,4 @@ supincomeTobacco<-I(Household.final.consumption.expenditure-aothspendminustobacc
 LESEQ1<-lm(Tobacco~supincomeTobacco+Year+ï..Quarter)
 summary(LESEQ1)
 
-#Data
-A dataset has been pulled from statscanada data on quarterly consumer spending from 1999-2019 (approx 80 observations).
 
