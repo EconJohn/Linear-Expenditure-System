@@ -1,9 +1,18 @@
-#Creating a Package to Run the LES
+ <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<h1>Creating a Package to Run the LES<h1>
 
-The linear expenditure system which was first developed by Richard Stone in 1954 is a demand system which distingishes between subsistance expenditure and supernumerary spending. The main idea is that there exists some base line level of demand necessary for consumer survival and afterward there is some extra income for much more leisurely spending on such commodities.
+<p>The linear expenditure system which was first developed by Richard Stone in 1954 is a demand system which distingishes between subsistance expenditure and supernumerary spending. The main idea is that there exists some base line level of demand necessary for consumer survival and afterward there is some extra income for much more leisurely spending on such commodities.</p>
 
-The LES is a simply from rearranging our marshallian demands for the stone-geary utility function. In general the LES is written as:
-$$p_ix_i=p_i\gamma_i+\beta_i(m-\sum_jp_j\gamma_j),\space \space \space j\neq i$$
+<p>The LES is a simply from rearranging our marshallian demands for the stone-geary utility function. In general the LES is written as:
+  :<math>p_ix_i=p_i\gamma_i+\beta_i(m-\sum_jp_j\gamma_j),\space \space \space j\neq i</math>
 The key lies in terms of estimating what exactly our supernumerary spending on all other goods is.
 
 #Estimating substance expenditure
