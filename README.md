@@ -42,13 +42,12 @@ In terms of running the LES we are running a seemingly unrelated regressions sys
 Since we are estimating expenditure we do not need to worry about having specific price and quantity data. Rather we can deal with aggregates.
 
 <h1>Running the Code</h1>
+First we load the data set
 ```{r}
-#Load Data
 df<-read.csv("C:\\Users\\jakea\\Desktop\\Consumer Data 1999to2019.csv")
 attach(df)
 ```
-<br>
-
+Then we proceed to estimate our supernumary income using the porportional habit formation method
 ```{r}
 #Estimate Supernumary income Using porportional habit formation for a single equation in the LES
 subT<-coef(arima(I(Household.final.consumption.expenditure-Tobacco),order=c(1,0,0)))
