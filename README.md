@@ -27,7 +27,7 @@ Now this isnt very sophisticated and such data can be changed internally. what w
 
 In Robert Pollak and Terrance J. Wales' paper "Estimation of the Linear Expenditure system" they propose 4 differing methods for estimating our subsistance expenditure for each good. Since we are estimating subsistance expenditure on commodity groups however we are going to modify the estimation proceedures to be for substance spending on all other income.
 
-The estimation proceedures are the following:
+The estimation proceedures are the following: 
 
 **Constant**
 $$\sum_{j}p_{jt}\gamma_{jt}=E[m_t-p_{it}x_{it}]$$
