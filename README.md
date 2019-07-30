@@ -22,21 +22,19 @@ In Robert Pollak and Terrance J. Wales' paper "Estimation of the Linear Expendit
 
 The estimation proceedures are the following: 
 
-**Constant**
-
+**Constant**<br>
 ![](http://latex.codecogs.com/gif.latex?%5Csum_%7Bj%7Dp_%7Bjt%7D%5Cgamma_%7Bjt%7D%3DE%5Bm_t-p_%7Bit%7Dx_%7Bit%7D%5D)
-It should be noted that some arbitrary number can be chosen instead. 
+<br>It should be noted that some arbitrary number can be chosen instead. 
 
-**Linear Time Trend**
-
+**Linear Time Trend**<br>
 ![](http://latex.codecogs.com/gif.latex?%5Csum_%7Bj%7Dp_%7Bjt%7D%5Cgamma_%7Bjt%7D%3Da%5E*&plus;%5Calpha_%7Bi%7Dt)
 
-**Porportional Habit Formation (AR(1) without Constant)**
+**Porportional Habit Formation (AR(1) without Constant)**<br>
 ![](http://latex.codecogs.com/gif.latex?%5Csum_%7Bj%7Dp_%7Bjt%7D%5Cgamma_%7Bjt%7D%3D%5Calpha_i%28m_%7Bt-1%7D-p_%7Bit-1%7Dx_%7Bit-1%7D%29)
-**Lagged Consumption Habit Formation (AR(1) with Constant)**
-![](http://latex.codecogs.com/gif.latex?%5Csum_%7Bj%7Dp_%7Bjt%7D%5Cgamma_%7Bjt%7D%3Da_i%5E*&plus;%5Calpha_i%28m_%7Bt-1%7D-p_%7Bit-1%7Dx_%7Bit-1%7D%29)
 
-The reason why we are focused on this aspect first is because in order for us to run this system we require that we know what our substance expenditure is. *we estimate this first*
+**Lagged Consumption Habit Formation (AR(1) with Constant)**<br>
+![](http://latex.codecogs.com/gif.latex?%5Csum_%7Bj%7Dp_%7Bjt%7D%5Cgamma_%7Bjt%7D%3Da_i%5E*&plus;%5Calpha_i%28m_%7Bt-1%7D-p_%7Bit-1%7Dx_%7Bit-1%7D%29)
+<br>The reason why we are focused on this aspect first is because in order for us to run this system we require that we know what our substance expenditure is. *we estimate this first*
 
 #Estimating the LES
 In terms of running the LES we are running a seemingly unrelated regressions system, where we estimate $n-1$ equations by this method and the last one by OLS.
