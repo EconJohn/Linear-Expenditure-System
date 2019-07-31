@@ -62,5 +62,21 @@ supincomeTobacco<-I(Household.final.consumption.expenditure-aothspendminustobacc
 #using OLS  (REMBER THE REAL WAY IS TO USE SUR)
 LESEQ1<-lm(Tobacco~supincomeTobacco+Year+ï..Quarter)
 summary(LESEQ1)
+```
+<h1>Attempts at code</h1>
 
+Below is the code for the basic estimation proceedure. it is not complete or functional. The main goal is to prodouce a set of equations.
+
+```{r}
+LES<-function(df,Total.Expenditure.Vector,
+              Annual.Vector, Quarterly.Vector){
+  allotherspending<-Total.Expenditure.Vector-df
+substancespending<-sapply(allotherspending,mean)
+equations<-list()
+for(i in names(df)[-1]){
+  equations[i]<- 
+    get(i)~I(Total.Expenditure.Vector-substancespending[i])+Annual.Vector+Quarterly.Vector
+}
+}
+```
 
