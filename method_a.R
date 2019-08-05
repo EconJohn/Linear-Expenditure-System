@@ -3,34 +3,68 @@
 #' The following is a method for estimating the expendature of a given good relative to 
 #' other goods.
 #'
-#'  
-#'(Functions will be renamed in a more appropriate manner)
-#'
-#'Method (a): Choose the mean
-#'
-#'Error handling will have to be dealt with 
-#'
-#'time is defaulted but is user defined from the data set. 
+#' First lets import the data set. 
+#' 
+library(RCurl)
+dt<-getURLContent("https://raw.githubusercontent.com/EconJohn/Linear-Expenditure-System/master/Consumer%20Data%201999to2019.csv?token=ALCCTHUSIY47LI55QJ2RNXC5JB6DI")
 
-method_a<-function(var,dat,timevar="time"){
+dt<-read.csv(text=dt)
+
+dtt<-lapply(dt, function(x) gsub(",","",x))
+
+dtt<-lapply(dtt,as.numeric)
+
+dtt<-dtt[-1]
+
+dtt<- as.data.frame(dtt)
+#' Lets estimate the demand for tobacco (our X_i) by using the LES framework.
+#' 
+#' Step 1: Lets find our method for estimating our supernumerary income (M - sum(P_j*X_j)) where j!=i 
+#' (i.e. excluding tobacco expendature)
+#' 
+#' Option c: Use of an autoregressive process of all other expenditure besides for tobacco
+
+
+require (forecast)
+method_c <- function(data, total_expenditure_vector, time_var){
   
-  #' Var is our good of interest
-  var<-sum(var)
-  M  <-sum(dat[,-match(c(timevar),names(dat))])  #' This creates our data set  
+  #' Get all other spending besides for the total expendature data
+  all_other_spending <- lapply(data, function(x) (total_expenditure_vector - x))
   
-  #' Now lets run the regression (Remember, we are using the mean) 
-  #' (I don't remember the type of regression)
+  all_other_spending <- as.data.frame(all_other_spending)
   
-  mod<-glm(var~(M-mean(M)))
-summary(mod)
-}
+  all_other_spending
+  
+  #' Run all other spending through an AR-1 process.
+
+  coef_substance_expenditure <- lapply(all_other_spending,
+                                       function(x) coef(auto.arima(x)))
+
+  coef_substance_expenditure <- lapply(coef_substance_expenditure, function(x) x[1])
+  
+  cse<- list()
+  for(i in 1: length(coef_substance_expenditure)){
+    if(names(coef_substance_expenditure[[i]])=="ar1"){
+      cse[[i]]<-coef_substance_expenditure[[i]]
+      names(cse[[i]])<-names(coef_substance_expenditure[i])
+    }
+  }
+
+  cse
+  #' #' Get substance expenditure
+  #' 
+  #' substance_expenditure <- I(coef_substance_expenditure * all_other_spending)
+  #' 
+  #' #' Estimate the LES
+  #' 
+  #' LES <- lapply(dtt[-dtt$Household.final.consumption.expenditure...C.],
+  #'               function(y) lm(y ~ I(total_expenditure_vector - substance_expenditure)))
+  #' 
+  #' LES
+  #' 
+  #' 
+  #' all_other_spending
 
 
-#'Heres an example (with obvious problems)
-#'
-#'We are using the "freeny" data set from the datasets package
 
-require(datasets)
-freeny$time<-rownames(freeny)
-
-method_a(freeny$market.potential,dat=freeny)
+ }
