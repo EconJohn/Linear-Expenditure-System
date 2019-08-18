@@ -49,22 +49,26 @@ method_c <- function(data, total_expenditure_vector, time_var){
       names(cse[[i]])<-names(coef_substance_expenditure[i])
     }
   }
+cse <-unlist(cse)
+coef_substance_expenditure <- unlist(coef_substance_expenditure)
+  # Get substance expenditure
 
-  cse
-  #' #' Get substance expenditure
-  #' 
-  #' substance_expenditure <- I(coef_substance_expenditure * all_other_spending)
-  #' 
-  #' #' Estimate the LES
-  #' 
-  #' LES <- lapply(dtt[-dtt$Household.final.consumption.expenditure...C.],
-  #'               function(y) lm(y ~ I(total_expenditure_vector - substance_expenditure)))
-  #' 
-  #' LES
-  #' 
-  #' 
-  #' all_other_spending
+  substance_expenditure <- I(coef_substance_expenditure * all_other_spending)
 
+  
+  # Estimate the LES
+
+  LES <- lapply(data,
+                function(y) lm(y ~ I(substance_expenditure - total_expenditure_vector )))
+
+  LES
+
+
+ }
+
+####WE ARE USING THIS BROOOOOOOOO
+
+lapply(dtt, function(x) summary(lm(x ~ dtt$Household.final.consumption.expenditure...C.)))
 
 
  }
