@@ -68,7 +68,8 @@ coef_substance_expenditure <- unlist(coef_substance_expenditure)
 
 ####WE ARE USING THIS BROOOOOOOOO
 
-lapply(dtt, function(x) summary(lm(x ~ dtt$Household.final.consumption.expenditure...C.)))
+##Get coeffcients 
+vals<-lapply(dtt, function(x) coef(lm(x ~ dtt$Household.final.consumption.expenditure...C.))[2])
 
 
- }
+
