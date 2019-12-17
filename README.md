@@ -68,15 +68,13 @@ summary(LESEQ1)
 Below is the code for the basic estimation proceedure. it is not complete or functional. The main goal is to prodouce a set of equations.
 
 ```{r}
-LES<-function(df,Total.Expenditure.Vector,
-              Annual.Vector, Quarterly.Vector){
-  allotherspending<-Total.Expenditure.Vector-df
-substancespending<-sapply(allotherspending,mean)
-equations<-list()
-for(i in names(df)[-1]){
-  equations[i]<- 
-    get(i)~I(Total.Expenditure.Vector-substancespending[i])+Annual.Vector+Quarterly.Vector
-}
-}
+#step1
+#estimate auxillary regression for subsistence expenditure
+lm1<-lm(Food.and.non.alcoholic.beverages...C11.~Year)
+#The fitted values of this regression will be our measure of substance expenditure.
+#step2
+#estimate linear expenditure system with fitted values around values of auxillary regression.
+lm2<-lm(Food.and.non.alcoholic.beverages...C11.~I(Services...CS.-fitted(lm1)))
+summary(lm2)
 ```
 
