@@ -70,7 +70,7 @@ Below is the code for the basic estimation proceedure. it is not complete or fun
 ```{r}
 #step1
 #estimate auxillary regression for subsistence expenditure
-lm1<-lm(Food.and.non.alcoholic.beverages...C11.~Year)
+lm1<-lm(Services...CS.~Year)
 #The fitted values of this regression will be our measure of substance expenditure.
 #step2
 #estimate linear expenditure system with fitted values around values of auxillary regression.
