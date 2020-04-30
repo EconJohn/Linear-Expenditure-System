@@ -40,41 +40,32 @@ The estimation proceedures are the following:
 In terms of running the LES we are running a seemingly unrelated regressions system, where we estimate $n-1$ equations by this method and the last one by OLS.
 
 Since we are estimating expenditure we do not need to worry about having specific price and quantity data. Rather we can deal with aggregates.
-<h1>Data</h1>
-<p>The data set is from statistics canada where we use quarterly consumer data from 1999-2019 </p
-<h1>Running the Code</h1>
-First we load the data set
 
-```{r}
-df<-read.csv("C:\\Users\\jakea\\Desktop\\Consumer Data 1999to2019.csv")
-attach(df)
-```
-
-```{r}
-#Estimate Supernumary income Using porportional habit formation for a single equation in the LES
-subT<-coef(arima(I(Household.final.consumption.expenditure-Tobacco),order=c(1,0,0)))
-
-aothspendminustobacco<-I(subT[1]*(Household.final.consumption.expenditure-Tobacco))
-
-supincomeTobacco<-I(Household.final.consumption.expenditure-aothspendminustobacco)
-
-#Estimating a single equation from the LES for tobacco expenditure
-#using OLS  (REMBER THE REAL WAY IS TO USE SUR)
-LESEQ1<-lm(Tobacco~supincomeTobacco+Year+ï..Quarter)
-summary(LESEQ1)
-```
 <h1>Attempts at code</h1>
 
 Below is the code for the basic estimation proceedure. it is not complete or functional. The main goal is to prodouce a set of equations.
 
 ```{r}
-#step1
-#estimate auxillary regression for subsistence expenditure
-lm1<-lm(Services...CS.~Year)
-#The fitted values of this regression will be our measure of substance expenditure.
-#step2
-#estimate linear expenditure system with fitted values around values of auxillary regression.
-lm2<-lm(Food.and.non.alcoholic.beverages...C11.~I(Services...CS.-fitted(lm1)))
-summary(lm2)
+
+#Step1: Load Data set
+#Data is in millions of dollars
+df<-read.csv("")
+attach(df)
+names(df)
+dim(df)
+View(df)
+
+#Step2: Estimate of essential expenditure by obtaining fitted values over time
+aconsumption<-lm(Housing..water..electricity..gas.and.other.fuels~Time)
+acon<-fitted(aconsumption)
+
+#Step3: Identify system of equations to estimate.
+gasr<-Gas~I(Housing..water..electricity..gas.and.other.fuels-acon)
+eler<-Electricity~I(Housing..water..electricity..gas.and.other.fuels-acon)
+waterr<-Water.supply.and.sanitation.services~I(Housing..water..electricity..gas.and.other.fuels-acon)
+
+#Step 4: Estimate linear expenditure system:
+LES<-systemfit(list(gasreg=gasr, elecreg=eler,waterreg=waterr),method="SUR")
+summary(LES)
 ```
 
