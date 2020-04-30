@@ -41,7 +41,7 @@ In terms of running the LES we are running a seemingly unrelated regressions sys
 
 Since we are estimating expenditure we do not need to worry about having specific price and quantity data. Rather we can deal with aggregates.
 
-<h1>Attempts at code</h1>
+<h1>The LES in R</h1>
 
 Below is the code for the basic estimation proceedure. it is not complete or functional. The main goal is to prodouce a set of equations.
 
