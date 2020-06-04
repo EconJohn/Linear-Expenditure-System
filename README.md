@@ -1,4 +1,4 @@
-<h1>Creating a Package to Run the LES</h1>
+<h1>A breif overview of the LES</h1>
 
 The linear expenditure system which was first developed by Richard Stone in 1954 is a demand system which distingishes between subsistance expenditure and supernumerary spending. The main idea is that there exists some base line level of demand necessary for consumer survival and afterward there is some extra income for much more leisurely spending on such commodities.
 
